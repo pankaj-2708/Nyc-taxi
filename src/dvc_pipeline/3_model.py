@@ -144,6 +144,28 @@ def objective_XGB(trial):
     return score
 
 
+def objective_SVR(trial):
+    global X, y
+    kernel_ = trial.suggest_categorical("kernel", ["rbf", "poly", "sigmoid", "linear"])
+    degree_ = trial.suggest_int("degree", 2, 7)
+    gamma_ = trial.suggest_float("gamma", 0.1, 100)
+    coef0_ = trial.suggest_float("coef0", 0.1, 100)
+    C_ = trial.suggest_float("C", 0.1, 10)
+    epsilon_ = trial.suggest_float("epsilon", 0.001, 1)
+
+    model = None
+    if kernel_ == "poly":
+        model = SVR(
+            kernel=kernel_, degree=degree_, gamma=gamma_, coef0=coef0_, C=C_, epsilon=epsilon_
+        )
+    else:
+        model = SVR(kernel=kernel_, gamma=gamma_, coef0=coef0_, C=C_, epsilon=epsilon_)
+
+    score = cross_val_score(model, X=X, y=y, cv=5, n_jobs=-1).mean()
+
+    return score
+
+
 def objective_LGB(trial):
     global X, y
     n_estimators_ = trial.suggest_int("n_estimators", 10, 250)
@@ -279,6 +301,37 @@ def tune_random_forest(X, y, test_path):
         mlflow.log_figure(fig, "optuna_plot_slice.png")
 
 
+def tune_svm(X, y, test_path):
+    study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
+    study.optimize(objective_SVR, n_trials=150, n_jobs=-1)
+
+    best_trial = study.best_trial
+
+    with mlflow.start_run():
+        mlflow.log_param("model", "svm_tunned")
+        for key, value in best_trial.params.items():
+            mlflow.log_param(key, value)
+
+        test = pd.read_csv(test_path)
+        test_X = test.drop(columns="6")
+        test_y = test["6"]
+
+        model_ = SVR(**best_trial.params, random_state=42)
+
+        model_.fit(X, y)
+        pred_y = model_.predict(test_X)
+
+        mlflow.log_metric("r2_score", r2_score(test_y, pred_y))
+        mlflow.log_metric("mse", mean_squared_error(test_y, pred_y))
+        mlflow.log_metric("mae", mean_absolute_error(test_y, pred_y))
+        fig = plot_optimization_history(study)
+        mlflow.log_figure(fig, "optuna_optimization_history.png")
+        fig = plot_param_importances(study)
+        mlflow.log_figure(fig, "optuna_param_importance.png")
+        fig = plot_slice(study)
+        mlflow.log_figure(fig, "optuna_plot_slice.png")
+
+
 def tune_gradient_boosting(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
     study.optimize(objective_GBR, n_trials=150, n_jobs=-1)
@@ -327,6 +380,9 @@ def main():
         params = yaml.safe_load(f)["model"]
 
     df = load_data(input_path)
+
+    if params["sample"]:
+        df = df.sample(params["sample_size"], random_state=42)
     global X, y
     X = df.drop(columns=["6"], axis=1)
     y = df["6"]

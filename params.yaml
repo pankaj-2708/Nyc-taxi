@@ -6,6 +6,8 @@ dataset:
  test_size: 0.1
  random_state: 42
 model:
+  sample: True
+  sample_size: 5000
   try_model: True
   tune_gradient_boosting: False
   tune_random_forest: False

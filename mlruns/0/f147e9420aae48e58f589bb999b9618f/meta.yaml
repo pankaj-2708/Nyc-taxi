@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/f147e9420aae48e58f589bb999b9618f/artifacts
+end_time: 1756226621411
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f147e9420aae48e58f589bb999b9618f
+run_name: whimsical-ram-937
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756226619397
+status: 3
+tags: []
+user_id: panka

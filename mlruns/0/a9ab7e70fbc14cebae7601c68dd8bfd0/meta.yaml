@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/a9ab7e70fbc14cebae7601c68dd8bfd0/artifacts
+end_time: 1756226688641
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: a9ab7e70fbc14cebae7601c68dd8bfd0
+run_name: unequaled-goose-851
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756226633001
+status: 3
+tags: []
+user_id: panka

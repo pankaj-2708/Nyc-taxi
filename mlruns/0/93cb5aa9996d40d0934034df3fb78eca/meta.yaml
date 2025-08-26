@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/93cb5aa9996d40d0934034df3fb78eca/artifacts
+deleted_time: 1756226592421
 end_time: 1756225770440
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 93cb5aa9996d40d0934034df3fb78eca
 run_name: orderly-hen-700
 source_name: ''

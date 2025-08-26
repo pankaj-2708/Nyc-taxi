@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/c0b3c57ac2344318a218a895fe1bbe38/artifacts
+end_time: 1756226611610
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c0b3c57ac2344318a218a895fe1bbe38
+run_name: rumbling-penguin-3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756226610671
+status: 3
+tags: []
+user_id: panka

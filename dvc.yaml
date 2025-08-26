@@ -1,0 +1,40 @@
+stages:
+  preprocess:
+    cmd: python ./src/dvc_pipeline/0_preprocess.py
+    deps:
+    - ./src/dvc_pipeline/0_preprocess.py
+    params:
+    - preprocess.pickup_datetime
+    outs:
+    - ./data/processed/
+  transform:
+    cmd: python ./src/dvc_pipeline/1_transform.py
+    deps:
+    - ./src/dvc_pipeline/1_transform.py
+    params:
+    - transform.normalise
+    outs:
+    - ./data/interim/
+  train_test_split:
+    cmd: python ./src/dvc_pipeline/2_train_test_split.py
+    deps:
+    - ./src/dvc_pipeline/2_train_test_split.py
+    params:
+    - dataset.test_size
+    - dataset.random_state
+    outs:
+    - ./data/train_test_split/
+  model:
+    cmd: python ./src/dvc_pipeline/3_model.py
+    deps:
+    - ./src/dvc_pipeline/3_model.py
+    params:
+    - model.try_model
+    - model.sample
+    - model.sample_size
+    - model.tune_gradient_boosting
+    - model.tune_random_forest
+    - model.tune_XGBoost
+    - model.tune_light_boost
+    outs:
+    - ./model/
