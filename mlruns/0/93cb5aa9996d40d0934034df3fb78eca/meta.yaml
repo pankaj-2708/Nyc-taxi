@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/93cb5aa9996d40d0934034df3fb78eca/artifacts
+end_time: 1756225770440
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 93cb5aa9996d40d0934034df3fb78eca
+run_name: orderly-hen-700
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756225764724
+status: 3
+tags: []
+user_id: panka

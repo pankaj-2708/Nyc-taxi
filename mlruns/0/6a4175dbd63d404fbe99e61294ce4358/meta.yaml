@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/6a4175dbd63d404fbe99e61294ce4358/artifacts
+deleted_time: 1756225868583
+end_time: 1756225304089
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 6a4175dbd63d404fbe99e61294ce4358
+run_name: able-worm-738
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756225303803
+status: 4
+tags: []
+user_id: panka

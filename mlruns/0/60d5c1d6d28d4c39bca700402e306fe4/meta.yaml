@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/60d5c1d6d28d4c39bca700402e306fe4/artifacts
+deleted_time: 1756225868582
+end_time: 1756225358661
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 60d5c1d6d28d4c39bca700402e306fe4
+run_name: nebulous-bat-309
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756225358188
+status: 4
+tags: []
+user_id: panka
