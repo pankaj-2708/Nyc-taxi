@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/f99aebd79c9e479b9ca048bbe713f3c9/artifacts
+end_time: 1756313280573
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f99aebd79c9e479b9ca048bbe713f3c9
+run_name: sassy-seal-274
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756313275500
+status: 3
+tags: []
+user_id: panka

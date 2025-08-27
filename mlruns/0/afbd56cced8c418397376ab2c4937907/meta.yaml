@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/afbd56cced8c418397376ab2c4937907/artifacts
+end_time: 1756313260288
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: afbd56cced8c418397376ab2c4937907
+run_name: flawless-snail-14
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756313259264
+status: 3
+tags: []
+user_id: panka

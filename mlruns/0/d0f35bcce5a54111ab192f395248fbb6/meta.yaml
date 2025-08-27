@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/d0f35bcce5a54111ab192f395248fbb6/artifacts
+end_time: 1756299394452
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d0f35bcce5a54111ab192f395248fbb6
+run_name: luminous-stag-748
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756299344285
+status: 3
+tags: []
+user_id: panka

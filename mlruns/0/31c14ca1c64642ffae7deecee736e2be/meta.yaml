@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/31c14ca1c64642ffae7deecee736e2be/artifacts
+end_time: 1756299337172
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 31c14ca1c64642ffae7deecee736e2be
+run_name: efficient-smelt-119
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756299335066
+status: 3
+tags: []
+user_id: panka

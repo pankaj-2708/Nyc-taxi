@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/4c319c0afc0f4e70ab9fec92c81211aa/artifacts
+end_time: 1756300379569
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4c319c0afc0f4e70ab9fec92c81211aa
+run_name: learned-newt-137
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756300378654
+status: 3
+tags: []
+user_id: panka

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/2539ff5993d24b07a8e6f9c5d85b3683/artifacts
+end_time: 1756299344277
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2539ff5993d24b07a8e6f9c5d85b3683
+run_name: awesome-midge-380
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756299339977
+status: 3
+tags: []
+user_id: panka

@@ -41,18 +41,18 @@ def transform(df, normalise, output_path):
     if normalise:
         clm_trans_num = ColumnTransformer(
             [
-                ("std", MinMaxScaler(), [2, 3, 4, 5]),
+                ("std", MinMaxScaler(), [2, 3, 4, 5 , 14 ,15]),
                 ("fn", fn, [7]),
-                ("pf", pf, [8, 9, 10, 11]),
+                ("pf", pf, [8, 9, 10, 11, 12, 13 ,16]),
             ],
             remainder="passthrough",
         )
     else:
         clm_trans_num = ColumnTransformer(
             [
-                ("std", StandardScaler(), [2, 3, 4, 5]),
+                ("std", StandardScaler(), [2, 3, 4, 5 , 14 ,15]),
                 ("fn", fn, [7]),
-                ("pf", pf, [8, 9, 10, 11]),
+                ("pf", pf, [8, 9, 10, 11, 12, 13 ,16]),
             ],
             remainder="passthrough",
         )

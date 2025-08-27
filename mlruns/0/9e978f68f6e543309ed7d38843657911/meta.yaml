@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/9e978f68f6e543309ed7d38843657911/artifacts
+end_time: 1756313295141
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9e978f68f6e543309ed7d38843657911
+run_name: vaunted-bee-72
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756313288629
+status: 3
+tags: []
+user_id: panka

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/e607afa254ef40068c2b681691079783/artifacts
+end_time: 1756312115769
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e607afa254ef40068c2b681691079783
+run_name: youthful-seal-121
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756312110341
+status: 3
+tags: []
+user_id: panka

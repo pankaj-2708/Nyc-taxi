@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/50c8eb432cc34ba89159d937f8152400/artifacts
+end_time: 1756312110316
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 50c8eb432cc34ba89159d937f8152400
+run_name: handsome-gnu-897
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756312105319
+status: 3
+tags: []
+user_id: panka

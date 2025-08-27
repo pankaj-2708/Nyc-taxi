@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/046eef1ec41542afb7c571b0fa19395e/artifacts
+end_time: 1756300388460
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 046eef1ec41542afb7c571b0fa19395e
+run_name: bittersweet-shad-821
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756300379580
+status: 3
+tags: []
+user_id: panka

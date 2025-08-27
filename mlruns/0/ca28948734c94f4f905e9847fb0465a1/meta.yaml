@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/ca28948734c94f4f905e9847fb0465a1/artifacts
+end_time: 1756312090199
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ca28948734c94f4f905e9847fb0465a1
+run_name: dapper-stoat-88
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756312088252
+status: 3
+tags: []
+user_id: panka
