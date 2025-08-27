@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/ad924f2e010a4d00a42acaeba1648a06/artifacts
+end_time: 1756228804829
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ad924f2e010a4d00a42acaeba1648a06
+run_name: valuable-croc-497
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228801086
+status: 3
+tags: []
+user_id: panka

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/4db3100b86cf4ed0b06e052888eaec3a/artifacts
+end_time: 1756228801075
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 4db3100b86cf4ed0b06e052888eaec3a
+run_name: upbeat-chimp-141
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228798509
+status: 3
+tags: []
+user_id: panka

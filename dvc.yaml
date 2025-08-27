@@ -4,7 +4,7 @@ stages:
     deps:
     - ./src/dvc_pipeline/0_preprocess.py
     params:
-    - preprocess.pickup_datetime
+    - preprocess.dropoff_datetime
     outs:
     - ./data/processed/
   transform:

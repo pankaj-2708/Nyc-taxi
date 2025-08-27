@@ -1,13 +1,14 @@
 preprocess:
-  pickup_datetime: False
+  dropoff_datetime: False
 transform:
-  normalise: False
+  normalise: True
 dataset:
  test_size: 0.1
  random_state: 42
 model:
   sample: True
   sample_size: 5000
+  add_info: "noramlised"
   try_model: True
   tune_gradient_boosting: False
   tune_random_forest: False

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/95fee267f709403791edcfaea1ae462f/artifacts
+end_time: 1756228796591
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 95fee267f709403791edcfaea1ae462f
+run_name: bustling-rook-607
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228787385
+status: 3
+tags: []
+user_id: panka

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/5dd2c3df91c14f8a816ea8a3c5020cba/artifacts
+end_time: 1756228272059
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5dd2c3df91c14f8a816ea8a3c5020cba
+run_name: bright-cod-179
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228270200
+status: 3
+tags: []
+user_id: panka

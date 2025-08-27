@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/60c7217f5f704e4eb6d5a1ade9ca04c2/artifacts
+end_time: 1756228798501
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 60c7217f5f704e4eb6d5a1ade9ca04c2
+run_name: brawny-hog-335
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228796598
+status: 3
+tags: []
+user_id: panka

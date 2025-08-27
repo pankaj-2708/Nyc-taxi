@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/c35b783a36414f4e88a9ece396e99932/artifacts
+end_time: 1756228274633
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c35b783a36414f4e88a9ece396e99932
+run_name: luxuriant-mink-93
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228272067
+status: 3
+tags: []
+user_id: panka

@@ -1,0 +1,73 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python ./src/dvc_pipeline/0_preprocess.py
+    deps:
+    - path: ./src/dvc_pipeline/0_preprocess.py
+      hash: md5
+      md5: 64e5e615d4e38fc58a6fe08a8b965f3f
+      size: 2131
+    params:
+      params.yaml:
+        preprocess.pickup_datetime: false
+    outs:
+    - path: ./data/processed/
+      hash: md5
+      md5: 20f94e4dd7b3aed63bfdfe957a3dc4d8.dir
+      size: 160866255
+      nfiles: 1
+  transform:
+    cmd: python ./src/dvc_pipeline/1_transform.py
+    deps:
+    - path: ./src/dvc_pipeline/1_transform.py
+      hash: md5
+      md5: f0ebd0680d0d347bee365f65e7568c48
+      size: 2452
+    params:
+      params.yaml:
+        transform.normalise: true
+    outs:
+    - path: ./data/interim/
+      hash: md5
+      md5: 57cf2ff69ada6a1a5b78656423759109.dir
+      size: 270132027
+      nfiles: 3
+  train_test_split:
+    cmd: python ./src/dvc_pipeline/2_train_test_split.py
+    deps:
+    - path: ./src/dvc_pipeline/2_train_test_split.py
+      hash: md5
+      md5: 498bd5f3feb116b1bc8f720b68f4605f
+      size: 1341
+    params:
+      params.yaml:
+        dataset.random_state: 42
+        dataset.test_size: 0.1
+    outs:
+    - path: ./data/train_test_split/
+      hash: md5
+      md5: b3fea0274e73e726871feaf8f506ad11.dir
+      size: 270538278
+      nfiles: 2
+  model:
+    cmd: python ./src/dvc_pipeline/3_model.py
+    deps:
+    - path: ./src/dvc_pipeline/3_model.py
+      hash: md5
+      md5: 509b638d4ecfe537456994e3a5911962
+      size: 14276
+    params:
+      params.yaml:
+        model.sample: true
+        model.sample_size: 5000
+        model.try_model: true
+        model.tune_XGBoost: false
+        model.tune_gradient_boosting: false
+        model.tune_light_boost: false
+        model.tune_random_forest: false
+    outs:
+    - path: ./model/
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0

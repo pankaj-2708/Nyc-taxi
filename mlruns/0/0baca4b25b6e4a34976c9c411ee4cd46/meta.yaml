@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/0baca4b25b6e4a34976c9c411ee4cd46/artifacts
+end_time: 1756228270192
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0baca4b25b6e4a34976c9c411ee4cd46
+run_name: illustrious-ray-450
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228263472
+status: 3
+tags: []
+user_id: panka

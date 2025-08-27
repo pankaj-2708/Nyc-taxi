@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/5e623ff8c237407d95d0848763b71913/artifacts
+end_time: 1756228278185
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5e623ff8c237407d95d0848763b71913
+run_name: incongruous-moth-655
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228274643
+status: 3
+tags: []
+user_id: panka

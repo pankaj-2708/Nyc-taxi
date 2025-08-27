@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/2c3f47b9bb1349a8b403b2456692b8e4/artifacts
+end_time: 1756228263458
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2c3f47b9bb1349a8b403b2456692b8e4
+run_name: placid-shark-86
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228262728
+status: 3
+tags: []
+user_id: panka

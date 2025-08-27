@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/2e950ecc9009429eb43b43204e1a91cf/artifacts
+end_time: 1756228787362
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 2e950ecc9009429eb43b43204e1a91cf
+run_name: rogue-smelt-845
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228786048
+status: 3
+tags: []
+user_id: panka

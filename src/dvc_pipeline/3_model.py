@@ -31,14 +31,14 @@ def save_model(model, output_path):
         pickle.dump(model, f)
 
 
-def try_models(X, y, test_path):
+def try_models(X, y, test_path,add_info=""):
     for name, model in [
-        ("xgboost", xgb.XGBRegressor()),
-        ("random_forest", RandomForestRegressor()),
-        ("gradient_boosting", GradientBoostingRegressor()),
-        ("lgm", LGBMRegressor(boosting_type="goss", device="gpu")),
-        ("cbr", CatBoostRegressor()),
-        ("sv", SVR()),
+        (f"xgboost {add_info}", xgb.XGBRegressor()),
+        (f"random_forest {add_info}", RandomForestRegressor()),
+        (f"gradient_boosting {add_info}", GradientBoostingRegressor()),
+        (f"lgm {add_info}", LGBMRegressor(boosting_type="goss", device="gpu")),
+        (f"cbr {add_info}", CatBoostRegressor()),
+        (f"sv {add_info}", SVR()),
     ]:
         with mlflow.start_run():
             mlflow.log_param("model", name)
@@ -388,7 +388,7 @@ def main():
     y = df["6"]
 
     if params["try_model"]:
-        try_models(X, y, test_path)
+        try_models(X, y, test_path,params['add_info'])
 
     if params["tune_gradient_boosting"]:
         tune_gradient_boosting(X, y, test_path)

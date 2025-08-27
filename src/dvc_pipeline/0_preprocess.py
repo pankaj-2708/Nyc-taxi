@@ -30,19 +30,23 @@ def convert_to_dist(row):
     )
 
 
-def preprocess(df, pickup_datetime):
-    df["dropoff_datetime"] = pd.to_datetime(df["dropoff_datetime"])
+def preprocess(df, dropoff_datetime):
+    df["pickup_datetime"] = pd.to_datetime(df["pickup_datetime"])
 
-    df["dropoff_month"] = df["dropoff_datetime"].dt.month
-    df["dropoff_day"] = df["dropoff_datetime"].dt.day
-    df["dropoff_day_of_week"] = df["dropoff_datetime"].dt.day_of_week
+    df["pickup_month"] = df["pickup_datetime"].dt.month
+    df["pickup_day"] = df["pickup_datetime"].dt.day
+    df["pickup_hour"] = df["pickup_datetime"].dt.hour
+    df["pickup_minute"] = df["pickup_datetime"].dt.minute
+    df["pickup_day_of_week"] = df["pickup_datetime"].dt.day_of_week
 
     # pickup is optional because pickup and dropoff are exactly same in almost all rows
-    if pickup_datetime:
-        df["pickup_datetime"] = pd.to_datetime(df["pickup_datetime"])
-        df["pickup_month"] = df["pickup_datetime"].dt.month
-        df["pickup_day"] = df["pickup_datetime"].dt.day
-        df["pickup_day_of_week"] = df["pickup_datetime"].dt.day_of_week
+    if dropoff_datetime:
+        df["dropoff_datetime"] = pd.to_datetime(df["dropoff_datetime"])
+        df["dropoff_month"] = df["dropoff_datetime"].dt.month
+        df["dropoff_day"] = df["dropoff_datetime"].dt.day
+        df["dropoff_day"] = df["dropoff_datetime"].dt.hour
+        df["dropoff_minute"] = df["dropoff_minute"].dt.minute
+        df["dropoff_day_of_week"] = df["dropoff_datetime"].dt.day_of_week
 
     df["distance_in_km"] = df.apply(convert_to_dist, axis=1)
     df.drop(columns=["pickup_datetime", "dropoff_datetime", "id"], inplace=True)
@@ -61,7 +65,7 @@ def main():
         params = yaml.safe_load(f)["preprocess"]
 
     df = load_data(input_path)
-    df = preprocess(df, params["pickup_datetime"])
+    df = preprocess(df, params["dropoff_datetime"])
 
     save_data(df, output_path)
 

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/988854b95f874f878f26510c8b18789e/artifacts
+end_time: 1756228863192
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 988854b95f874f878f26510c8b18789e
+run_name: chill-slug-139
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756228804840
+status: 3
+tags: []
+user_id: panka
