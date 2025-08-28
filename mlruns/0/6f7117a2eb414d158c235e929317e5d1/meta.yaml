@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/6f7117a2eb414d158c235e929317e5d1/artifacts
+deleted_time: 1756313729058
 end_time: 1756312124349
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 6f7117a2eb414d158c235e929317e5d1
 run_name: carefree-lamb-11
 source_name: ''

@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/ad6a577c694e4176802e61053096b677/artifacts
+end_time: 1756315113607
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: ad6a577c694e4176802e61053096b677
+run_name: serious-quail-700
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756315112907
+status: 4
+tags: []
+user_id: panka

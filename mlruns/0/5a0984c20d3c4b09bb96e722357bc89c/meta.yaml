@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/5a0984c20d3c4b09bb96e722357bc89c/artifacts
+end_time: 1756319602352
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 5a0984c20d3c4b09bb96e722357bc89c
+run_name: silent-turtle-448
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756319501923
+status: 3
+tags: []
+user_id: panka

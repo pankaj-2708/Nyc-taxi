@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/15140770dd30457da7b02a162b69a2b5/artifacts
+deleted_time: 1756313729026
 end_time: 1756313283655
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 15140770dd30457da7b02a162b69a2b5
 run_name: bright-stoat-417
 source_name: ''

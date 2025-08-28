@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/91c2850f612b42cb9b63f3f523a8744a/artifacts
+deleted_time: 1756313729033
 end_time: 1756313288621
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 91c2850f612b42cb9b63f3f523a8744a
 run_name: rambunctious-ant-916
 source_name: ''

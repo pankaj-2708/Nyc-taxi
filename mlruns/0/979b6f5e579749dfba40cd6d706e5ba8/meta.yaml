@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/979b6f5e579749dfba40cd6d706e5ba8/artifacts
+deleted_time: 1756313729113
 end_time: 1756300398397
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 979b6f5e579749dfba40cd6d706e5ba8
 run_name: sassy-crane-427
 source_name: ''

@@ -44,8 +44,8 @@ def try_models(X, y, test_path,add_info=""):
             mlflow.log_param("model", name)
 
             test = pd.read_csv(test_path)
-            test_X = test.drop(columns="6")
-            test_y = test["6"]
+            test_X = test.drop(columns="8")
+            test_y = test["8"]
 
             model_ = model
 
@@ -218,8 +218,8 @@ def tune_lgbm(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="6")
-        test_y = test["6"]
+        test_X = test.drop(columns="8")
+        test_y = test["8"]
 
         model_ = LGBMRegressor(**best_trial.params, random_state=42)
 
@@ -250,8 +250,8 @@ def tune_xgboost(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="6")
-        test_y = test["6"]
+        test_X = test.drop(columns="8")
+        test_y = test["8"]
 
         model_ = xgb.XGBRegressor(**best_trial.params, random_state=42)
 
@@ -282,8 +282,8 @@ def tune_random_forest(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="6")
-        test_y = test["6"]
+        test_X = test.drop(columns="8")
+        test_y = test["8"]
 
         model_ = RandomForestRegressor(**best_trial.params, random_state=42)
 
@@ -313,8 +313,8 @@ def tune_svm(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="6")
-        test_y = test["6"]
+        test_X = test.drop(columns="8")
+        test_y = test["8"]
 
         model_ = SVR(**best_trial.params, random_state=42)
 
@@ -345,8 +345,8 @@ def tune_gradient_boosting(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="6")
-        test_y = test["6"]
+        test_X = test.drop(columns="8")
+        test_y = test["8"]
 
         model_ = GradientBoostingRegressor(**best_trial.params, random_state=42)
 
@@ -384,8 +384,8 @@ def main():
     if params["sample"]:
         df = df.sample(params["sample_size"], random_state=42)
     global X, y
-    X = df.drop(columns=["6"], axis=1)
-    y = df["6"]
+    X = df.drop(columns=["8"], axis=1)
+    y = df["8"]
 
     if params["try_model"]:
         try_models(X, y, test_path,params['add_info'])

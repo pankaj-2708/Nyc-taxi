@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/b5f3571d04364e6a8692c33161d8376a/artifacts
+end_time: 1756313761816
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b5f3571d04364e6a8692c33161d8376a
+run_name: nebulous-fly-404
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756313758761
+status: 3
+tags: []
+user_id: panka

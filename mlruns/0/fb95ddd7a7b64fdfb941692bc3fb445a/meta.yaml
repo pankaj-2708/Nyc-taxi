@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/fb95ddd7a7b64fdfb941692bc3fb445a/artifacts
+deleted_time: 1756313729154
 end_time: 1756300415732
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: fb95ddd7a7b64fdfb941692bc3fb445a
 run_name: thoughtful-fish-916
 source_name: ''

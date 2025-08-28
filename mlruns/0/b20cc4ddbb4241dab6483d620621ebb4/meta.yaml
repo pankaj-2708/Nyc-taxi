@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/b20cc4ddbb4241dab6483d620621ebb4/artifacts
+end_time: 1756313731424
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: b20cc4ddbb4241dab6483d620621ebb4
+run_name: spiffy-sow-426
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756313729645
+status: 3
+tags: []
+user_id: panka

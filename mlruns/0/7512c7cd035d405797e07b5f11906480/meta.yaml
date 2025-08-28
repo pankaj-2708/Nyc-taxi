@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/7512c7cd035d405797e07b5f11906480/artifacts
+end_time: 1756319496520
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7512c7cd035d405797e07b5f11906480
+run_name: whimsical-donkey-70
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756319493455
+status: 3
+tags: []
+user_id: panka

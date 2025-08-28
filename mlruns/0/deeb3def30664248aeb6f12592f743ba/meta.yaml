@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/deeb3def30664248aeb6f12592f743ba/artifacts
+deleted_time: 1756313729151
 end_time: 1756312134881
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: deeb3def30664248aeb6f12592f743ba
 run_name: adorable-frog-733
 source_name: ''

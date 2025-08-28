@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/acf24a090a354c78bb5e2677d14826b2/artifacts
+end_time: 1756313766782
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: acf24a090a354c78bb5e2677d14826b2
+run_name: classy-bug-901
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756313761830
+status: 3
+tags: []
+user_id: panka

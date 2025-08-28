@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/4c04f0ace68945859f60391a2c3493a7/artifacts
+deleted_time: 1756313729122
 end_time: 1756300391021
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 4c04f0ace68945859f60391a2c3493a7
 run_name: respected-pig-945
 source_name: ''

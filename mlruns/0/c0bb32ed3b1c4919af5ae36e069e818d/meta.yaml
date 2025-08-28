@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/c0bb32ed3b1c4919af5ae36e069e818d/artifacts
+end_time: 1756319488008
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c0bb32ed3b1c4919af5ae36e069e818d
+run_name: powerful-ant-368
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756319470372
+status: 3
+tags: []
+user_id: panka

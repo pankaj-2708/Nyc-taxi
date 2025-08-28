@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/24829e5f7ea94624b3bd50d40ba04135/artifacts
+end_time: 1756316144364
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 24829e5f7ea94624b3bd50d40ba04135
+run_name: blushing-moose-623
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756316143774
+status: 4
+tags: []
+user_id: panka

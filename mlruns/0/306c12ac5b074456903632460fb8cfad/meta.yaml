@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/306c12ac5b074456903632460fb8cfad/artifacts
+end_time: 1756313753583
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 306c12ac5b074456903632460fb8cfad
+run_name: crawling-ram-591
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1756313731446
+status: 3
+tags: []
+user_id: panka

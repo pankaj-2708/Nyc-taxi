@@ -41,23 +41,23 @@ def transform(df, normalise, output_path):
     if normalise:
         clm_trans_num = ColumnTransformer(
             [
-                ("std", MinMaxScaler(), [2, 3, 4, 5 , 14 ,15]),
+                ("std", MinMaxScaler(), [2, 3, 4, 5 , 15 ,16 ,18, 19]),
                 ("fn", fn, [7]),
-                ("pf", pf, [8, 9, 10, 11, 12, 13 ,16]),
+                ("pf", pf, [8, 9, 10, 11, 12, 13 ,14 ,17]),
             ],
             remainder="passthrough",
         )
     else:
         clm_trans_num = ColumnTransformer(
             [
-                ("std", StandardScaler(), [2, 3, 4, 5 , 14 ,15]),
+                ("std", StandardScaler(), [2, 3, 4, 5 , 15 ,16,18, 19]),
                 ("fn", fn, [7]),
-                ("pf", pf, [8, 9, 10, 11, 12, 13 ,16]),
+                ("pf", pf, [8, 9, 10, 11, 12, 13 ,14 ,17]),
             ],
             remainder="passthrough",
         )
 
-    ppl = Pipeline(steps=[("numerical", clm_trans_num), ("categorical", clm_trans_cat)])
+    ppl = Pipeline(steps=[("numerical", clm_trans_num),("cat",clm_trans_cat)])
 
     ppl.fit(df)
     df = ppl.transform(df)

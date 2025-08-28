@@ -1,8 +1,9 @@
 artifact_uri: file:///C:/Users/panka/ProjectsMl/Nyc_taxi/mlruns/0/40b1d55d8d0c4cd7807e52b67c4a209c/artifacts
+deleted_time: 1756313729145
 end_time: 1756300394408
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 40b1d55d8d0c4cd7807e52b67c4a209c
 run_name: sedate-snake-34
 source_name: ''

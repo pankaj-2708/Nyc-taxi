@@ -50,6 +50,7 @@ def preprocess(df, dropoff_datetime):
     df["pickup_day"] = df["pickup_datetime"].dt.day
     df["pickup_hour"] = df["pickup_datetime"].dt.hour
     df["pickup_minute"] = df["pickup_datetime"].dt.minute
+    df["pickup_second"] = df["pickup_datetime"].dt.second
     df["pickup_day_of_week"] = df["pickup_datetime"].dt.day_of_week
 
     # pickup is optional because pickup and dropoff are exactly same in almost all rows
@@ -59,12 +60,15 @@ def preprocess(df, dropoff_datetime):
         df["dropoff_day"] = df["dropoff_datetime"].dt.day
         df["dropoff_day"] = df["dropoff_datetime"].dt.hour
         df["dropoff_minute"] = df["dropoff_minute"].dt.minute
+        df["dropoff_second"] = df["dropoff_datetime"].dt.second
         df["dropoff_day_of_week"] = df["dropoff_datetime"].dt.day_of_week
 
     df["distance_in_km"] = df.apply(convert_to_dist, axis=1)
     df['lat_diff'] = df['pickup_latitude'] - df['dropoff_latitude']
     df['long_diff'] = df['pickup_longitude'] - df['dropoff_longitude']
     df["bearing"] = df.apply(bearing_diff, axis=1)
+    df['mid_lat'] = df['pickup_latitude']/2 + df['dropoff_latitude']/2
+    df['mid_long'] = df['pickup_longitude']/2 + df['dropoff_longitude']/2
     df.drop(columns=["pickup_datetime", "dropoff_datetime", "id"], inplace=True)
     return df
 
