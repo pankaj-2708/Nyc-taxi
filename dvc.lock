@@ -5,8 +5,8 @@ stages:
     deps:
     - path: ./src/dvc_pipeline/0_preprocess.py
       hash: md5
-      md5: 4bb44aac1d7f0d9c0fb1c695a8c4ce6e
-      size: 3451
+      md5: 78e9fe93db340d8197f19f2492c6a5b5
+      size: 3528
     params:
       params.yaml:
         preprocess.dropoff_datetime: false
@@ -54,8 +54,8 @@ stages:
     deps:
     - path: ./src/dvc_pipeline/3_model.py
       hash: md5
-      md5: 32b8dea626049001acf62594ada24f75
-      size: 14707
+      md5: 6a66eb648c5fd35ad493878be0808243
+      size: 14778
     params:
       params.yaml:
         model.sample: true

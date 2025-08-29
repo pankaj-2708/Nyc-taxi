@@ -26,8 +26,7 @@ def load_data(input_path):
     return pd.read_csv(input_path)
 
 
-
-def try_models(X, y, test_path,add_info=""):
+def try_models(X, y, test_path, add_info=""):
     for name, model in [
         (f"xgboost {add_info}", xgb.XGBRegressor()),
         (f"random_forest {add_info}", RandomForestRegressor()),
@@ -40,8 +39,8 @@ def try_models(X, y, test_path,add_info=""):
             mlflow.log_param("model", name)
 
             test = pd.read_csv(test_path)
-            test_X = test.drop(columns="8")
-            test_y = test["8"]
+            test_X = test.drop(columns="trip_duration")
+            test_y = test["trip_duration"]
 
             model_ = model
 
@@ -51,14 +50,15 @@ def try_models(X, y, test_path,add_info=""):
             mlflow.log_metric("r2_score", r2_score(test_y, pred_y))
             mlflow.log_metric("mse", mean_squared_error(test_y, pred_y))
             mlflow.log_metric("mae", mean_absolute_error(test_y, pred_y))
-            if name==f"lgm {add_info}":
-                mlflow.lightgbm.log_model(model_,"model")
-            elif name==f"cbr {add_info}":
-                mlflow.catboost.log_model(model_,"model")
-            elif name==f"xgboost {add_info}":
-                mlflow.xgboost.log_model(model_,"model")
+            if name == f"lgm {add_info}":
+                mlflow.lightgbm.log_model(model_, "model")
+            elif name == f"cbr {add_info}":
+                mlflow.catboost.log_model(model_, "model")
+            elif name == f"xgboost {add_info}":
+                mlflow.xgboost.log_model(model_, "model")
             else:
-                mlflow.sklearn.log_model(model_,"model")
+                mlflow.sklearn.log_model(model_, "model")
+
 
 def objective_GBR(trial):
     global X, y
@@ -221,8 +221,8 @@ def tune_lgbm(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="8")
-        test_y = test["8"]
+        test_X = test.drop(columns="trip_duration")
+        test_y = test["trip_duration"]
 
         model_ = LGBMRegressor(**best_trial.params, random_state=42)
 
@@ -238,7 +238,8 @@ def tune_lgbm(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
-        mlflow.lightgbm.log_model(model_,'tuned_lgb')
+        mlflow.lightgbm.log_model(model_, "tuned_lgb")
+
 
 def tune_xgboost(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
@@ -253,8 +254,8 @@ def tune_xgboost(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="8")
-        test_y = test["8"]
+        test_X = test.drop(columns="trip_duration")
+        test_y = test["trip_duration"]
 
         model_ = xgb.XGBRegressor(**best_trial.params, random_state=42)
 
@@ -270,7 +271,8 @@ def tune_xgboost(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
-        mlflow.xgboost.log_model(model_,'tuned_xg')
+        mlflow.xgboost.log_model(model_, "tuned_xg")
+
 
 def tune_random_forest(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
@@ -285,8 +287,8 @@ def tune_random_forest(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="8")
-        test_y = test["8"]
+        test_X = test.drop(columns="trip_duration")
+        test_y = test["trip_duration"]
 
         model_ = RandomForestRegressor(**best_trial.params, random_state=42)
 
@@ -302,7 +304,8 @@ def tune_random_forest(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
-        mlflow.sklearn.log_model(model_,'tuned_rf')
+        mlflow.sklearn.log_model(model_, "tuned_rf")
+
 
 def tune_svm(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
@@ -316,8 +319,8 @@ def tune_svm(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="8")
-        test_y = test["8"]
+        test_X = test.drop(columns="trip_duration")
+        test_y = test["trip_duration"]
 
         model_ = SVR(**best_trial.params, random_state=42)
 
@@ -333,7 +336,8 @@ def tune_svm(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
-        mlflow.sklearn.log_model(model_,'tuned_sv')
+        mlflow.sklearn.log_model(model_, "tuned_sv")
+
 
 def tune_gradient_boosting(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
@@ -348,8 +352,8 @@ def tune_gradient_boosting(X, y, test_path):
             mlflow.log_param(key, value)
 
         test = pd.read_csv(test_path)
-        test_X = test.drop(columns="8")
-        test_y = test["8"]
+        test_X = test.drop(columns="trip_duration")
+        test_y = test["trip_duration"]
 
         model_ = GradientBoostingRegressor(**best_trial.params, random_state=42)
 
@@ -365,8 +369,7 @@ def tune_gradient_boosting(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
-        mlflow.sklearn.log_model(model_,'tuned_gb')
-        
+        mlflow.sklearn.log_model(model_, "tuned_gb")
 
 
 X, y = None, None
@@ -378,7 +381,6 @@ def main():
     input_path = home_dir / "data" / "train_test_split" / "train.csv"
     test_path = home_dir / "data" / "train_test_split" / "test.csv"
 
-
     with open(home_dir / "params.yaml", "r") as f:
         params = yaml.safe_load(f)["model"]
 
@@ -387,11 +389,11 @@ def main():
     if params["sample"]:
         df = df.sample(params["sample_size"], random_state=42)
     global X, y
-    X = df.drop(columns=["8"], axis=1)
-    y = df["8"]
+    X = df.drop(columns=["trip_duration"], axis=1)
+    y = df["trip_duration"]
 
     if params["try_model"]:
-        try_models(X, y, test_path,params['add_info'])
+        try_models(X, y, test_path, params["add_info"])
 
     if params["tune_gradient_boosting"]:
         tune_gradient_boosting(X, y, test_path)

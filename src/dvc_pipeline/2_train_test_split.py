@@ -17,7 +17,6 @@ def split(df, test_size_, random_state_=42):
     return train, test
 
 
-
 def save_data(train, test, output_path):
     output_path.mkdir(parents=True, exist_ok=True)
     train.to_csv(output_path / "train.csv", index=False)
