@@ -70,6 +70,7 @@ def preprocess(df, dropoff_datetime):
     df['mid_lat'] = df['pickup_latitude']/2 + df['dropoff_latitude']/2
     df['mid_long'] = df['pickup_longitude']/2 + df['dropoff_longitude']/2
     df.drop(columns=["pickup_datetime", "dropoff_datetime", "id"], inplace=True)
+    # apply different outlier removal technique and check if model improves
     return df
 
 

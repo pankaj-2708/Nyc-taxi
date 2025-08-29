@@ -26,10 +26,6 @@ def load_data(input_path):
     return pd.read_csv(input_path)
 
 
-def save_model(model, output_path):
-    with open(output_path / "transformed.csv", "wb") as f:
-        pickle.dump(model, f)
-
 
 def try_models(X, y, test_path,add_info=""):
     for name, model in [
@@ -55,7 +51,14 @@ def try_models(X, y, test_path,add_info=""):
             mlflow.log_metric("r2_score", r2_score(test_y, pred_y))
             mlflow.log_metric("mse", mean_squared_error(test_y, pred_y))
             mlflow.log_metric("mae", mean_absolute_error(test_y, pred_y))
-
+            if name==f"lgm {add_info}":
+                mlflow.lightgbm.log_model(model_,"model")
+            elif name==f"cbr {add_info}":
+                mlflow.catboost.log_model(model_,"model")
+            elif name==f"xgboost {add_info}":
+                mlflow.xgboost.log_model(model_,"model")
+            else:
+                mlflow.sklearn.log_model(model_,"model")
 
 def objective_GBR(trial):
     global X, y
@@ -235,7 +238,7 @@ def tune_lgbm(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
-
+        mlflow.lightgbm.log_model(model_,'tuned_lgb')
 
 def tune_xgboost(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
@@ -267,7 +270,7 @@ def tune_xgboost(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
-
+        mlflow.xgboost.log_model(model_,'tuned_xg')
 
 def tune_random_forest(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
@@ -299,7 +302,7 @@ def tune_random_forest(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
-
+        mlflow.sklearn.log_model(model_,'tuned_rf')
 
 def tune_svm(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
@@ -330,7 +333,7 @@ def tune_svm(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
-
+        mlflow.sklearn.log_model(model_,'tuned_sv')
 
 def tune_gradient_boosting(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
@@ -362,6 +365,8 @@ def tune_gradient_boosting(X, y, test_path):
         mlflow.log_figure(fig, "optuna_param_importance.png")
         fig = plot_slice(study)
         mlflow.log_figure(fig, "optuna_plot_slice.png")
+        mlflow.sklearn.log_model(model_,'tuned_gb')
+        
 
 
 X, y = None, None
@@ -373,8 +378,6 @@ def main():
     input_path = home_dir / "data" / "train_test_split" / "train.csv"
     test_path = home_dir / "data" / "train_test_split" / "test.csv"
 
-    output_path = home_dir / "model"
-    output_path.mkdir(parents=True, exist_ok=True)
 
     with open(home_dir / "params.yaml", "r") as f:
         params = yaml.safe_load(f)["model"]

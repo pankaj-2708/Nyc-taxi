@@ -5,40 +5,40 @@ stages:
     deps:
     - path: ./src/dvc_pipeline/0_preprocess.py
       hash: md5
-      md5: 788739cc20a6ccbd6b8a4e78e8fb10df
-      size: 3304
+      md5: 4bb44aac1d7f0d9c0fb1c695a8c4ce6e
+      size: 3451
     params:
       params.yaml:
         preprocess.dropoff_datetime: false
     outs:
     - path: ./data/processed/
       hash: md5
-      md5: 97aea50c41652eb631c11dae36920071.dir
-      size: 259478795
+      md5: fbeb0057c40148937bd17720df800e86.dir
+      size: 313452106
       nfiles: 1
   transform:
     cmd: python ./src/dvc_pipeline/1_transform.py
     deps:
     - path: ./src/dvc_pipeline/1_transform.py
       hash: md5
-      md5: b728c5571575c7f6cd6d8ee227c00321
-      size: 2492
+      md5: 4f6d1cd2c2590dff47bfedf6dd78a9f9
+      size: 2507
     params:
       params.yaml:
         transform.normalise: false
     outs:
     - path: ./data/interim/
       hash: md5
-      md5: 32bb2f0771fa974871ed75bb574246fa.dir
-      size: 447448073
+      md5: aa4f17777ba2014589f09320e218e281.dir
+      size: 505773440
       nfiles: 3
   train_test_split:
     cmd: python ./src/dvc_pipeline/2_train_test_split.py
     deps:
     - path: ./src/dvc_pipeline/2_train_test_split.py
       hash: md5
-      md5: 498bd5f3feb116b1bc8f720b68f4605f
-      size: 1341
+      md5: 537ab7ab5d06ce8b5d29b65e819af8b6
+      size: 1343
     params:
       params.yaml:
         dataset.random_state: 42
@@ -46,16 +46,16 @@ stages:
     outs:
     - path: ./data/train_test_split/
       hash: md5
-      md5: 1a35199de822217f9aed5492c27ff53f.dir
-      size: 439200487
+      md5: d1f2a173c4a41a79bf8e1d7be19b7f3c.dir
+      size: 495792194
       nfiles: 2
   model:
     cmd: python ./src/dvc_pipeline/3_model.py
     deps:
     - path: ./src/dvc_pipeline/3_model.py
       hash: md5
-      md5: d3ce07813286f74441f38b4617ceb5e3
-      size: 14276
+      md5: 32b8dea626049001acf62594ada24f75
+      size: 14707
     params:
       params.yaml:
         model.sample: true
@@ -65,9 +65,3 @@ stages:
         model.tune_gradient_boosting: false
         model.tune_light_boost: false
         model.tune_random_forest: false
-    outs:
-    - path: ./model/
-      hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0

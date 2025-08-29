@@ -1,6 +1,7 @@
 # Data
 /data/
 /model/
+/mlruns/
 
 # Mac OS-specific storage files
 .DS_Store

@@ -36,5 +36,9 @@ stages:
     - model.tune_random_forest
     - model.tune_XGBoost
     - model.tune_light_boost
+  best_model:
+    cmd: python ./src/dvc_pipeline/4_save_best_model.py
+    deps:
+    - ./src/dvc_pipeline/4_save_best_model.py
     outs:
     - ./model/
