@@ -90,7 +90,10 @@ def main():
     with open(home_dir / "params.yaml", "r") as f:
         params = yaml.safe_load(f)["preprocess"]
 
+        
     df = load_data(input_path)
+    if params["sample"]:
+        df = df.sample(params["sample_size"], random_state=42)
     df = preprocess(df, params["dropoff_datetime"])
 
     save_data(df, output_path)

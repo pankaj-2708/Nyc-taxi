@@ -5,6 +5,8 @@ stages:
     - ./src/dvc_pipeline/0_preprocess.py
     params:
     - preprocess.dropoff_datetime
+    - preprocess.sample
+    - preprocess.sample_size
     outs:
     - ./data/processed/
   transform:
@@ -30,8 +32,6 @@ stages:
     - ./src/dvc_pipeline/3_model.py
     params:
     - model.try_model
-    - model.sample
-    - model.sample_size
     - model.tune_gradient_boosting
     - model.tune_random_forest
     - model.tune_XGBoost

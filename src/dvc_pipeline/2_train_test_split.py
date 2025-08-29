@@ -37,6 +37,7 @@ def main():
 
     data = load_data(data_path)
     train, test = None, None
+    
     try:
         train, test = split(data, params["test_size"], params["random_state"])
     except KeyError:

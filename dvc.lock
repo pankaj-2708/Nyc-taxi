@@ -5,40 +5,42 @@ stages:
     deps:
     - path: ./src/dvc_pipeline/0_preprocess.py
       hash: md5
-      md5: 78e9fe93db340d8197f19f2492c6a5b5
-      size: 3528
+      md5: 0ce7ab4af21321d6e55e7e23e1aec3a2
+      size: 3650
     params:
       params.yaml:
         preprocess.dropoff_datetime: false
+        preprocess.sample: true
+        preprocess.sample_size: 20000
     outs:
     - path: ./data/processed/
       hash: md5
-      md5: fbeb0057c40148937bd17720df800e86.dir
-      size: 313452106
+      md5: 3710bdd05bcc16da7dc8cdfc41d60bf2.dir
+      size: 4296468
       nfiles: 1
   transform:
     cmd: python ./src/dvc_pipeline/1_transform.py
     deps:
     - path: ./src/dvc_pipeline/1_transform.py
       hash: md5
-      md5: 4f6d1cd2c2590dff47bfedf6dd78a9f9
-      size: 2507
+      md5: 75f5e1c9f89dce323b3543bf19dbd566
+      size: 2985
     params:
       params.yaml:
         transform.normalise: false
     outs:
     - path: ./data/interim/
       hash: md5
-      md5: aa4f17777ba2014589f09320e218e281.dir
-      size: 505773440
+      md5: b705bc04df7e6416be7c129c9ffdb2b1.dir
+      size: 6931117
       nfiles: 3
   train_test_split:
     cmd: python ./src/dvc_pipeline/2_train_test_split.py
     deps:
     - path: ./src/dvc_pipeline/2_train_test_split.py
       hash: md5
-      md5: 537ab7ab5d06ce8b5d29b65e819af8b6
-      size: 1343
+      md5: 4acb859f48838e8108cd7c8aa6bc381d
+      size: 1347
     params:
       params.yaml:
         dataset.random_state: 42
@@ -46,22 +48,33 @@ stages:
     outs:
     - path: ./data/train_test_split/
       hash: md5
-      md5: d1f2a173c4a41a79bf8e1d7be19b7f3c.dir
-      size: 495792194
+      md5: e5803e2b0c94b9bf517e71b5c5487c87.dir
+      size: 6805621
       nfiles: 2
   model:
     cmd: python ./src/dvc_pipeline/3_model.py
     deps:
     - path: ./src/dvc_pipeline/3_model.py
       hash: md5
-      md5: 6a66eb648c5fd35ad493878be0808243
-      size: 14778
+      md5: b2ac3e1b113e96ee005f338b57387db3
+      size: 14800
     params:
       params.yaml:
-        model.sample: true
-        model.sample_size: 10000
         model.try_model: true
         model.tune_XGBoost: false
         model.tune_gradient_boosting: false
         model.tune_light_boost: false
         model.tune_random_forest: false
+  best_model:
+    cmd: python ./src/dvc_pipeline/4_save_best_model.py
+    deps:
+    - path: ./src/dvc_pipeline/4_save_best_model.py
+      hash: md5
+      md5: c854a0e2509f01b778e2b236d198e9cd
+      size: 1069
+    outs:
+    - path: ./model/
+      hash: md5
+      md5: 486e2b463034959224ec7755ba69ffb9.dir
+      size: 1122637
+      nfiles: 1

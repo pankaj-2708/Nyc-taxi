@@ -1,4 +1,6 @@
 preprocess:
+  sample: True
+  sample_size: 20000
   dropoff_datetime: False
 transform:
   normalise: False
@@ -6,8 +8,6 @@ dataset:
  test_size: 0.1
  random_state: 42
 model:
-  sample: True
-  sample_size: 10000
   add_info: ""
   try_model: True
   tune_gradient_boosting: False

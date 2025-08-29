@@ -19,6 +19,17 @@ def load_data(input_path):
 def save_data(df, output_path):
     df.to_csv(output_path / "transformed.csv", index=False)
 
+def outliers(df):
+    for col_index in range(df.shape[1]):
+        mean_=df.iloc[:,col_index].mean()
+        std_=df.iloc[:,col_index].std()
+
+        min_bound=mean_-3*std_
+        max_bound=mean_+3*std_
+        indexses=df[(df.iloc[:,col_index]<min_bound) | (df.iloc[:,col_index]>max_bound)]
+        df.drop(index=indexses.index,inplace=True)
+        print(df.columns[col_index],"  ",len(indexses))
+    return df
 
 def transform(df, normalise, output_path):
     clm_trans_cat = ColumnTransformer([("onehot", OneHotEncoder(), [-1])], remainder="passthrough")
@@ -28,7 +39,7 @@ def transform(df, normalise, output_path):
 
     clm_trans_num = None
 
-    y = df["trip_duration"]
+    y = df[["trip_duration"]]
     fn_y.fit(y)
     with open(output_path / "fn_y.pkl", "wb") as f:
         pickle.dump(fn_y, f)
@@ -48,12 +59,11 @@ def transform(df, normalise, output_path):
     else:
         clm_trans_num = ColumnTransformer(
             [
-                ("std", MinMaxScaler(), [2, 3, 4, 5, 14, 15, 17, 18]),
+                ("std", StandardScaler(), [2, 3, 4, 5, 14, 15, 17, 18]),
                 ("pf", pf, [7, 8, 9, 10, 11, 12, 13, 16]),
             ],
             remainder="passthrough",
         )
-
     ppl = Pipeline(steps=[("numerical", clm_trans_num), ("cat", clm_trans_cat)])
 
     ppl.fit(df, y)
@@ -63,6 +73,9 @@ def transform(df, normalise, output_path):
         pickle.dump(ppl, f)
 
     new_df = pd.DataFrame(df)
+    # print(new_df.shape)
+    # new_df=outliers(new_df)
+    # print(new_df.shape)
     new_df["trip_duration"] = y
     return new_df
 
