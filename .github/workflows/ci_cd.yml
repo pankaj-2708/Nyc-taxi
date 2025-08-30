@@ -12,7 +12,7 @@ jobs:
               uses: actions/checkout@v3
 
             - name: setup_cml
-              uses: iterative/setup-cml@v2
+              uses: iterative/setup-cml@v1
 
             - name: Set up Python
               uses: actions/setup-python@v4
@@ -32,14 +32,17 @@ jobs:
                 aws-region: ${{ secrets.AWS_REGION }}
 
             - name: Download Dataset from S3
-              run: aws s3 cp s3://nyc-taxi/dataset.csv ./data/raw/
+              run: |
+               mkdir -p ./data/raw
+               mkdir -p ./model
+               aws s3 cp s3://nyc-taxi/dataset.csv ./data/raw/
             
             - name: running pipeline
               run: dvc exp run
 
             - name: creating report
               env:
-                REPO_TOKEN: ${{secrets.Github_token}}
+                REPO_TOKEN: ${{secrets.GITHUB_TOKEN}}
               run: |
                 python ./src/generate_report.py
                 cml comment create report.md
