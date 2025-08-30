@@ -6,6 +6,15 @@ import numpy as np
 import pickle
 
 
+MODEL_LIB_MAP = {
+    # --- Core ML / DS ---
+    "sklearn": "scikit-learn",
+    "catboost": "catboost",
+    "lightgbm": "lightgbm",
+    "xgboost": "xgboost",
+    "mlflow": "mlflow"
+}
+
 class check_data(BaseModel):
     vendor_id: int = Field(gt=0)
     pickup_datetime: datetime

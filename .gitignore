@@ -1,6 +1,6 @@
 # Data
 /data/
-/model/
+*/model/
 /mlruns/
 /catboost_info/
 

@@ -1,5 +1,4 @@
 from fastapi import FastAPI, Path, HTTPException, Query
-import json
 import pickle
 from pathlib import Path
 import numpy as np
@@ -16,14 +15,20 @@ ppl = None
 
 
 def load_pkl(path_):
-    with open(path_, "rb") as f:
-        return pickle.load(f)
+    try:
+        with open(path_, "rb") as f:
+            return pickle.load(f)
+    except ModuleNotFoundError as e:
+        missing_pkg=MODEL_LIB_MAP[str(e).split("'")[1]]
+        os.system(f"pip install {missing_pkg}")
+        return load_pkl(path_)
 
 
 def main():
     global model, transformer, ppl
     curr_dir = Path(__file__)
-    home_dir = curr_dir.parent.parent.parent.parent
+    home_dir = curr_dir.parent
+    print(home_dir)
     model_path = home_dir / "model" / "best_model.pkl"
     model = load_pkl(model_path)
     transformer_path = home_dir / "model" / "fn_y.pkl"
@@ -50,5 +55,5 @@ def predict_duration(data: check_data):
 
 if __name__=="__main__":
     import uvicorn
-    uvicorn.run(app,host='127.0.0.1',port=8080)
     main()
+    uvicorn.run(app,host='0.0.0.0',port=8000)
