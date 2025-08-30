@@ -5,7 +5,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from fastapi.responses import JSONResponse
-from src.Webapp.Backend.utility import *
+from utility import *
 import os
 
 app = FastAPI()
@@ -26,12 +26,11 @@ def main():
     home_dir = curr_dir.parent.parent.parent.parent
     model_path = home_dir / "model" / "best_model.pkl"
     model = load_pkl(model_path)
-    transformer_path = home_dir / "data" / "interim" / "fn_y.pkl"
+    transformer_path = home_dir / "model" / "fn_y.pkl"
     transformer = load_pkl(transformer_path)
-    ppl = load_pkl(home_dir / "data" / "interim" / "ppl.pkl")
+    ppl = load_pkl(home_dir / "model" / "ppl.pkl")
 
 
-main()
 
 
 @app.get("/trip_duration")
@@ -48,3 +47,8 @@ def predict_duration(data: check_data):
             "trip_duration_in_seconds": f"{transformer.inverse_transform(y)[0]}",
         }
     )
+
+if __name__=="__main__":
+    import uvicorn
+    uvicorn.run(app,host='127.0.0.1',port=8080)
+    main()
