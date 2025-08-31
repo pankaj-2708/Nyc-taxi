@@ -52,7 +52,9 @@ jobs:
               run: aws s3 cp s3://nyc-taxi/dataset.csv ./data/raw/
             
             - name: running pipeline
-              run: dvc exp run
+              run: | 
+                dvc init
+                dvc exp run
 
             - name: creating report
               env:
