@@ -57,7 +57,7 @@ jobs:
 
             - name: creating report
               env:
-                REPO_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                REPO_TOKEN: ${{secrets.Github_token}}
               run: |
                 python ./src/generate_report.py
                 cml comment create report.md
