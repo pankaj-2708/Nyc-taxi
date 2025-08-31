@@ -116,3 +116,34 @@ jobs:
             docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
             echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+    deploy_webapp:
+      needs: build_image_and_push_to_ecr
+      runs-on: nyc_taxi
+
+      steps:
+        - name: checkout repo
+          uses: actions/checkout@v3
+          
+        - name: Configure Aws credentials
+          uses: aws-actions/configure-aws-credentials@v4
+          with:
+              aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+              aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+              aws-region: ${{ secrets.AWS_REGION }}
+
+        - name: Login to Amazon ECR
+          id: login-ecr
+          uses: aws-actions/amazon-ecr-login@v2
+          
+        - name: run docker compose
+          env:
+            ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+            ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
+            ECR_REPOSITORY_BACKEND: ${{ secrets.ECR_REPOSITORY_NAME_BACKEND }}
+            IMAGE_TAG: latest
+          run:
+            docker compose down
+            docker compose pull
+            timeout 600 docker compose up -d
+
+
