@@ -1,0 +1,10 @@
+services:
+  backend:
+    build: ./src/Webapp/Backend
+    ports: 
+     - '8000:8000'
+
+  frontend:
+    build: ./src/Webapp/Frontend
+    ports: 
+     - '8501:8501'
