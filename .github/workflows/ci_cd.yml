@@ -141,7 +141,7 @@ jobs:
             ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
             ECR_REPOSITORY_BACKEND: ${{ secrets.ECR_REPOSITORY_NAME_BACKEND }}
             IMAGE_TAG: latest
-          run:
+          run: |
             docker compose down
             docker compose pull
             timeout 600 docker compose up
