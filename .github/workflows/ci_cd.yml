@@ -36,10 +36,15 @@ jobs:
                 mkdir -p ./data/raw
                 mkdir -p ./model
 
-            - name: Download Dataset from S3
-              uses: aws-actions/aws-cli-action@v2
+            - id: install-aws-cli
+              uses: unfor19/install-aws-cli-action@v1
               with:
-               awscli-command: aws s3 cp s3://nyc-taxi/dataset.csv ./data/raw/
+                version: 2                         # default
+                verbose: false                     # default
+                arch: amd64                        # allowed values: amd64, x86, x64, arm, arm64
+
+            - name: Download Dataset from S3
+              run: aws s3 cp s3://nyc-taxi/dataset.csv ./data/raw/
             
             - name: running pipeline
               run: dvc exp run
