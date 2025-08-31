@@ -53,7 +53,6 @@ jobs:
             
             - name: running pipeline
               run: | 
-                dvc init
                 dvc exp run
 
             - name: creating report
