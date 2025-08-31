@@ -14,15 +14,15 @@ jobs:
             - name: checkout repo
               uses: actions/checkout@v3
 
-            - name: Set up Python
-              uses: actions/setup-python@v4
-              with:
-                python-version: 3.12
+            # - name: Set up Python
+            #   uses: actions/setup-python@v4
+            #   with:
+            #     python-version: 3.12
 
-            - name: Install Dependencies
-              run: |
-                python -m pip install --upgrade pip
-                pip install -r ./src/dvc_pipeline/requirements.txt
+            # - name: Install Dependencies
+            #   run: |
+            #     python -m pip install --upgrade pip
+            #     pip install -r ./src/dvc_pipeline/requirements.txt
 
             - name: Configure Aws credentials
               uses: aws-actions/configure-aws-credentials@v4
@@ -31,11 +31,15 @@ jobs:
                 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                 aws-region: ${{ secrets.AWS_REGION }}
 
-            - name: Download Dataset from S3
+            - name: creating_directories
               run: |
-               mkdir -p ./data/raw
-               mkdir -p ./model
-               aws s3 cp s3://nyc-taxi/dataset.csv ./data/raw/
+                mkdir -p ./data/raw
+                mkdir -p ./model
+
+            - name: Download Dataset from S3
+              uses: aws-actions/aws-cli-action@v2
+              with:
+               awscli-command: aws s3 cp s3://nyc-taxi/dataset.csv ./data/raw/
             
             - name: running pipeline
               run: dvc exp run
