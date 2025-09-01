@@ -144,6 +144,6 @@ jobs:
           run: |
             docker compose down
             docker compose pull
-            timeout 600 docker compose up
+            timeout 600 docker compose up || true
 
 
