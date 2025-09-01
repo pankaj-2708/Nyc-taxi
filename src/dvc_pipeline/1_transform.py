@@ -73,6 +73,8 @@ def transform(df, normalise, output_path):
         pickle.dump(ppl, f)
 
     new_df = pd.DataFrame(df)
+    # apply multivariate outlier
+    
     # print(new_df.shape)
     # new_df=outliers(new_df)
     # print(new_df.shape)

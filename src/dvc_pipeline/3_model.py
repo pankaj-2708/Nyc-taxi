@@ -31,7 +31,7 @@ def try_models(X, y, test_path, add_info=""):
         (f"xgboost {add_info}", xgb.XGBRegressor()),
         (f"random_forest {add_info}", RandomForestRegressor()),
         (f"gradient_boosting {add_info}", GradientBoostingRegressor()),
-        (f"lgm {add_info}", LGBMRegressor(boosting_type="goss", device="gpu")),
+        (f"lgm {add_info}", LGBMRegressor(boosting_type="goss")),
         (f"cbr {add_info}", CatBoostRegressor()),
         (f"sv {add_info}", SVR()),
     ]:

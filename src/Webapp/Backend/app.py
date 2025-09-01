@@ -1,11 +1,10 @@
 from fastapi import FastAPI, Path, HTTPException, Query
-import json
 import pickle
 from pathlib import Path
 import numpy as np
 import pandas as pd
 from fastapi.responses import JSONResponse
-from src.Webapp.Backend.utility import *
+from utility import *
 import os
 
 app = FastAPI()
@@ -16,22 +15,27 @@ ppl = None
 
 
 def load_pkl(path_):
-    with open(path_, "rb") as f:
-        return pickle.load(f)
+    try:
+        with open(path_, "rb") as f:
+            return pickle.load(f)
+    except ModuleNotFoundError as e:
+        missing_pkg=MODEL_LIB_MAP[str(e).split("'")[1]]
+        os.system(f"pip install {missing_pkg}")
+        return load_pkl(path_)
 
 
 def main():
     global model, transformer, ppl
     curr_dir = Path(__file__)
-    home_dir = curr_dir.parent.parent.parent.parent
+    home_dir = curr_dir.parent
+    print(home_dir)
     model_path = home_dir / "model" / "best_model.pkl"
     model = load_pkl(model_path)
-    transformer_path = home_dir / "data" / "interim" / "fn_y.pkl"
+    transformer_path = home_dir / "model" / "fn_y.pkl"
     transformer = load_pkl(transformer_path)
-    ppl = load_pkl(home_dir / "data" / "interim" / "ppl.pkl")
+    ppl = load_pkl(home_dir / "model" / "ppl.pkl")
 
 
-main()
 
 
 @app.get("/trip_duration")
@@ -48,3 +52,8 @@ def predict_duration(data: check_data):
             "trip_duration_in_seconds": f"{transformer.inverse_transform(y)[0]}",
         }
     )
+
+if __name__=="__main__":
+    import uvicorn
+    main()
+    uvicorn.run(app,host='0.0.0.0',port=8000)

@@ -1,0 +1,10 @@
+services:
+  backend:
+    image: ${ECR_REGISTRY}/${ECR_REPOSITORY_BACKEND}:$IMAGE_TAG
+    ports: 
+     - '8000:8000'
+
+  frontend:
+    image: ${ECR_REGISTRY}/${ECR_REPOSITORY}:$IMAGE_TAG
+    ports: 
+     - '8501:8501'
