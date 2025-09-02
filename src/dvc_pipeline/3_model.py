@@ -79,7 +79,7 @@ def objective_GBR(trial):
         random_state=42,
     )
 
-    score = cross_val_score(model, X=X, y=y, cv=5, n_jobs=-1).mean()
+    score = cross_val_score(model, X=X, y=y, cv=5).mean()
 
     return score
 
@@ -116,7 +116,7 @@ def objective_RF(trial):
             random_state=42,
         )
 
-    score = cross_val_score(model, X=X, y=y, cv=5, n_jobs=-1).mean()
+    score = cross_val_score(model, X=X, y=y, cv=5).mean()
 
     return score
 
@@ -138,11 +138,10 @@ def objective_XGB(trial):
         booster=booster_,
         sampling_method=sampling_method_,
         tree_method=tree_method_,
-        process_type=process_type_,
-        n_jobs=-1,
+        process_type=process_type_
     )
 
-    score = cross_val_score(model, X=X, y=y, cv=5, n_jobs=-1).mean()
+    score = cross_val_score(model, X=X, y=y, cv=5).mean()
 
     return score
 
@@ -164,7 +163,7 @@ def objective_SVR(trial):
     else:
         model = SVR(kernel=kernel_, gamma=gamma_, coef0=coef0_, C=C_, epsilon=epsilon_)
 
-    score = cross_val_score(model, X=X, y=y, cv=5, n_jobs=-1).mean()
+    score = cross_val_score(model, X=X, y=y, cv=5).mean()
 
     return score
 
@@ -203,14 +202,14 @@ def objective_LGB(trial):
         metric=metric_,
     )
 
-    score = cross_val_score(model, X=X, y=y, cv=5, n_jobs=-1).mean()
+    score = cross_val_score(model, X=X, y=y, cv=5).mean()
 
     return score
 
 
 def tune_lgbm(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
-    study.optimize(objective_LGB, n_trials=200, n_jobs=-1)
+    study.optimize(objective_LGB, n_trials=200)
 
     best_trial = study.best_trial
 
@@ -243,7 +242,7 @@ def tune_lgbm(X, y, test_path):
 
 def tune_xgboost(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
-    study.optimize(objective_XGB, n_trials=150, n_jobs=-1)
+    study.optimize(objective_XGB, n_trials=150)
 
     best_trial = study.best_trial
 
@@ -276,7 +275,7 @@ def tune_xgboost(X, y, test_path):
 
 def tune_random_forest(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
-    study.optimize(objective_RF, n_trials=150, n_jobs=-1)
+    study.optimize(objective_RF, n_trials=150)
 
     best_trial = study.best_trial
 
@@ -309,7 +308,7 @@ def tune_random_forest(X, y, test_path):
 
 def tune_svm(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
-    study.optimize(objective_SVR, n_trials=150, n_jobs=-1)
+    study.optimize(objective_SVR, n_trials=150)
 
     best_trial = study.best_trial
 
@@ -341,7 +340,7 @@ def tune_svm(X, y, test_path):
 
 def tune_gradient_boosting(X, y, test_path):
     study = optuna.create_study(direction="maximize", sampler=optuna.samplers.TPESampler())
-    study.optimize(objective_GBR, n_trials=150, n_jobs=-1)
+    study.optimize(objective_GBR, n_trials=150)
 
     best_trial = study.best_trial
 

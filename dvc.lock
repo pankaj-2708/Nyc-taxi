@@ -23,8 +23,8 @@ stages:
     deps:
     - path: ./src/dvc_pipeline/1_transform.py
       hash: md5
-      md5: 75f5e1c9f89dce323b3543bf19dbd566
-      size: 2985
+      md5: fcd5880cdd1d05f052fe6bd51c1bed3d
+      size: 3313
     params:
       params.yaml:
         transform.normalise: false
@@ -56,8 +56,8 @@ stages:
     deps:
     - path: ./src/dvc_pipeline/3_model.py
       hash: md5
-      md5: b2ac3e1b113e96ee005f338b57387db3
-      size: 14800
+      md5: f17ed041c63d3b0247aabd0aefa17be7
+      size: 14655
     params:
       params.yaml:
         model.try_model: true
@@ -75,6 +75,6 @@ stages:
     outs:
     - path: ./model/
       hash: md5
-      md5: 486e2b463034959224ec7755ba69ffb9.dir
+      md5: eb7c30f5819d376ec73855a50cfc370b.dir
       size: 1122637
       nfiles: 1
