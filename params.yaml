@@ -1,5 +1,5 @@
 preprocess:
-  sample: False
+  sample: True
   sample_size: 20000
   dropoff_datetime: False
 transform:

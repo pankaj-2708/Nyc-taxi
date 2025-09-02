@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 from sklearn.pipeline import Pipeline
+from sklearn.ensemble import IsolationForest
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import OneHotEncoder
@@ -73,12 +74,18 @@ def transform(df, normalise, output_path):
         pickle.dump(ppl, f)
 
     new_df = pd.DataFrame(df)
+    new_df["trip_duration"] = y
     # apply multivariate outlier
     
     # print(new_df.shape)
     # new_df=outliers(new_df)
     # print(new_df.shape)
-    new_df["trip_duration"] = y
+    # # print(new_df.shape)
+    # ifr=IsolationForest(n_estimators=100,contamination=0.01,random_state=0)
+    # ifr.fit(new_df.values)
+    # y_O=ifr.predict(new_df.values)
+    # new_df=new_df[y_O.ravel()==1]
+    # # print(new_df.shape)
     return new_df
 
 
