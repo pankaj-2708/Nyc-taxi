@@ -1,61 +1,117 @@
-# Nyc_taxi
+# 🚀 End-to-End ML Project with Full Automation
 
-<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
-    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
-</a>
+This repository contains a **fully automated ML system for predicting trip duration** that integrates data versioning, experiment tracking, CI/CD pipelines, containerized deployment, and a complete web application (Frontend + Backend).  
 
-A short description of the project.
+---
 
-## Project Organization
+## ⚙️ Tech Stack & Tools
+
+This project leverages a modern MLOps stack for **end-to-end automation**:  
+
+- **CI/CD** → GitHub Actions (`.github/workflows/ci_cd.yml`)  
+- **Cloud Deployment** → AWS (EC2, ECR)  
+- **Pipeline Orchestration** → DVC (`dvc.yaml`, `params.yaml`)  
+- **ML Models** → scikit-learn , XGboost, LightGBM , Catboost
+- **Experiment Tracking** → MLflow (with CatBoost logs)  
+- **Containerization** → Docker & Docker Compose  
+- **Template Setup** → Cookiecutter project structure  
+- **Backend API** → FastAPI + Pydantic  
+- **Frontend UI** → Streamlit  
+- **Automation** → GitHub Actions  
+
+✅ This ensures **full reproducibility**, **versioned data/models**, **automated testing**, and **seamless deployment**.  
+
+---
+
+## 🔄 Workflow
+
+1. **Data Versioning & Pipeline** → DVC manages all stages (preprocessing → training → model saving).  
+2. **Experiment Tracking** → MLflow tracks metrics & artifacts.  
+3. **Automation** → GitHub Actions trigger pipeline runs & deployments.  
+4. **Containerization** → Docker ensures consistent environments.  
+5. **Deployment** → Automated CI/CD pipeline deploys the latest model + app to AWS.  
+6. **User Access** → Webapp (Streamlit Frontend + FastAPI Backend) for real-time predictions.  
+
+---
+
+## 🖼️ Project Preview  
+
+<img src="./demo.png">  
+
+---
+
+
+---
+
+## 📌 Key Highlights
+
+- ✅ **End-to-End Automated** ML lifecycle  
+- ✅ **Data + Model Versioning** with DVC  
+- ✅ **Experiment Tracking** with MLflow  
+- ✅ **CI/CD for Testing & Deployment**  
+- ✅ **Cloud-Ready (AWS)**  
+- ✅ **User-Friendly Webapp** (Streamlit + FastAPI)  
+
+---
+
+
+---
+
+## 📢 Important Note
+
+⚠️ The current model is trained on **20,000 rows only** due to cloud resource limitations.  
+The full dataset contains **1.4 million rows**, which can be used when scaling up infrastructure.  
+
+---
+## 📂 Project Structure
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-│
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
-│
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         src and configuration for tools like black
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── src   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes src a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+├── .dvc/                   # DVC metadata
+├── .dvcignore              # Ignore patterns for DVC
+├── .github/workflows/      # GitHub Actions for CI/CD
+│   └── ci_cd.yml
+├── .gitignore              # Ignore patterns for Git
+├── Makefile                # Automation commands
+├── README.md               # Project documentation
+├── compose.yaml            # Docker Compose for services
+├── docs/                   # Documentation files
+├── dvc.lock                # Lock file for DVC stages
+├── dvc.yaml                # DVC pipeline definition
+├── notebooks/              # Jupyter notebooks (EDA, modeling)
+│   ├── 0_preprocessing.ipynb
+│   ├── 1_EDA.ipynb
+│   ├── 2_transformation.ipynb
+│   ├── 3_model.ipynb
+│   └── catboost_info/
+├── params.yaml             # Pipeline parameters
+├── pyproject.toml          # Project configuration
+├── references/             # Reference data/resources
+├── reports/                # Generated reports & figures
+├── setup.cfg               # Python setup configuration
+└── src/                    # Source code
+    ├── Webapp/             # Frontend + Backend
+    ├── dvc_pipeline/       # Modular ML pipeline scripts
+    └── generate_report.py  # Automated report generation
 ```
 
---------
+## 🚀 Quick Start
 
+### 1️⃣ Clone Repository
+```bash
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+```
+
+### 2️⃣ Run Pipeline
+```bash
+dvc repro
+```
+
+### 3️⃣ Launch Application (Docker Compose)
+```bash
+docker compose up --build
+```
+
+### 4️⃣ Access Webapp
+- **Frontend (Streamlit):** `http://localhost:8501`  
+- **Backend (FastAPI):** `http://localhost:8000/docs`  
