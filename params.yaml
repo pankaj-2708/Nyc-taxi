@@ -9,8 +9,8 @@ dataset:
  random_state: 42
 model:
   add_info: ""
-  try_model: False
-  tune_gradient_boosting: True
-  tune_random_forest: True
-  tune_XGBoost: True
-  tune_light_boost: True
+  try_model: True
+  tune_gradient_boosting: False
+  tune_random_forest: False
+  tune_XGBoost: False
+  tune_light_boost: False
